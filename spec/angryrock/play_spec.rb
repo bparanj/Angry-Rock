@@ -1,6 +1,7 @@
 require 'spec_helper'
+require 'angryrock/play'
 
-module Game
+module AngryRock
   describe Play do
    
    it "should pick paper as the winner over rock" do

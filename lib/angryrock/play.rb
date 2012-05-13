@@ -1,4 +1,4 @@
-module Game  
+module AngryRock
   class Play
     def initialize(first_choice, second_choice)
       choice_1 = Internal::AngryRock.new(first_choice)
@@ -17,7 +17,7 @@ module Game
   end
   
   module Internal # no-rdoc
-    # This is implementation details. Not for client use.
+    # This is implementation details. Not for client use. Don't touch me.
     class AngryRock
       include Comparable
 
@@ -50,6 +50,4 @@ module Game
       end
     end
   end
-  
-end  
-
+end
