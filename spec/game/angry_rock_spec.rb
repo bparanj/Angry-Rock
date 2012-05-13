@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Game
-  describe AngryRock do
+  describe Play do
    
    it "should pick paper as the winner over rock" do
      play = Play.new(:paper, :rock)
