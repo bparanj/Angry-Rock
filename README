@@ -1,0 +1,9 @@
+Original solution had the following logic :
+
+if winner
+  result = winner.move 
+else
+  result = "TIE!" 
+end
+
+with play returning false for a tie scenario
