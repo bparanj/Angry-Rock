@@ -10,12 +10,12 @@ module Game
       @move = move.to_s
     end
 
-    def <=>(other)
-      if move == other.move
+    def <=>(opponent)
+      if move == opponent.move
         0
-      elsif WINS.include?([move, other.move])
+      elsif WINS.include?([move, opponent.move])
         1
-      elsif WINS.include?([other.move, move])
+      elsif WINS.include?([opponent.move, move])
         -1
       else
         raise ArgumentError, "Something's wrong"
@@ -26,11 +26,11 @@ module Game
     # it is returning the winning AngryRock object
     # play method that violated Command Query Separation is now gone.
     # This is a query method 
-    def winner(other)
-      if self > other
+    def winner(opponent)
+      if self > opponent
         self
-      elsif other > self
-        other
+      elsif opponent > self
+        opponent
       end
     end
   end
