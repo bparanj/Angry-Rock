@@ -18,7 +18,7 @@ module Game
       elsif WINS.include?([opponent.move, move])
         -1
       else
-        raise ArgumentError, "Something's wrong"
+        raise ArgumentError, "Only rock, paper, scissors are valid choices"
       end
     end
 

@@ -32,5 +32,11 @@ module Game
      end     
    end   
    
+   it "should raise exception when illegal input is provided" do
+     expect do
+       play = Play.new(:junk, :hunk)
+     end.to raise_error
+
+   end
   end
 end
