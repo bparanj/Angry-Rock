@@ -31,13 +31,12 @@ module Game
    end
    
    it "results in a tie when the same choice is made by both players" do
-     [:rock, :paper, :scissors].each do |choice|
-       choice_1 = Game::AngryRock.new(choice)
-       choice_2 = Game::AngryRock.new(choice)
-       winner = choice_1.play(choice_2)
+     choice_1 = Game::AngryRock.new(:rock)
+     choice_2 = Game::AngryRock.new(:rock)
+     winner = choice_1.play(choice_2)
+     result = winner.move
        
-       winner.should be_false
-     end
+     result.should == "TIE!"     
    end
    
   end

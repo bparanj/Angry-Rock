@@ -28,7 +28,7 @@ module Game
       elsif other > self
         other
       else
-        false
+        AngryRock.new("TIE!")
       end
     end
   end
