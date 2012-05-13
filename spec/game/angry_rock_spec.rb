@@ -30,32 +30,15 @@ module Game
      result.should == "rock"      
    end
    
-   it "results in a tie when the same choice is made by both players : rock" do
-     choice_1 = Game::AngryRock.new(:rock)
-     choice_2 = Game::AngryRock.new(:rock)
-     winner = choice_1.play(choice_2)
-     result = winner.move
+   it "results in a tie when the same choice is made by both players : rock, paper or scissors" do
+     [:rock, :paper, :scissors].each do |choice|
+       choice_1 = Game::AngryRock.new(choice)
+       choice_2 = Game::AngryRock.new(choice)
+       winner = choice_1.play(choice_2)
+       result = winner.move
        
-     result.should == "TIE!"     
-   end
-
-   it "results in a tie when the same choice is made by both players : paper" do
-     choice_1 = Game::AngryRock.new(:paper)
-     choice_2 = Game::AngryRock.new(:paper)
-     winner = choice_1.play(choice_2)
-     result = winner.move
-       
-     result.should == "TIE!"     
-   end
-
-   it "results in a tie when the same choice is made by both players : scissors" do
-     choice_1 = Game::AngryRock.new(:scissors)
-     choice_2 = Game::AngryRock.new(:scissors)
-     winner = choice_1.play(choice_2)
-     result = winner.move
-       
-     result.should == "TIE!"     
-   end
-   
+       result.should == "TIE!"      
+     end     
+   end   
   end
 end
