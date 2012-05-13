@@ -21,11 +21,7 @@ module Game
         raise ArgumentError, "Something's wrong"
       end
     end
-    # Problem : Is this method is a command and a query?
-    # It is ambiguous because play seems to be a name of a command and 
-    # it is returning the winning AngryRock object
-    # play method that violated Command Query Separation is now gone.
-    # This is a query method 
+
     def winner(opponent)
       if self > opponent
         self
@@ -37,7 +33,10 @@ module Game
   
   class Play
     def initialize(first_choice, second_choice)
-      @winner = first_choice.winner(second_choice)
+      choice_1 = AngryRock.new(first_choice)
+      choice_2 = AngryRock.new(second_choice)
+      
+      @winner = choice_1.winner(choice_2)
     end
         
     def has_winner?
