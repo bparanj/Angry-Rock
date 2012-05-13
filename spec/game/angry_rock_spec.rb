@@ -31,7 +31,7 @@ module Game
    end
    
    it "results in a tie when the same choice is made by both players : rock, paper or scissors" do
-     [:rock, :paper, :scissors].each do |choice|
+     data_driven_spec([:rock, :paper, :scissors]) do |choice|
        choice_1 = Game::AngryRock.new(choice)
        choice_2 = Game::AngryRock.new(choice)
        winner = choice_1.play(choice_2)
@@ -40,5 +40,13 @@ module Game
        result.should == "TIE!"      
      end     
    end   
+   
+   private
+   
+   def data_driven_spec(container)
+    container.each do |element|
+      yield element
+    end
+   end
   end
 end

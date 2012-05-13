@@ -21,7 +21,7 @@ module Game
         raise ArgumentError, "Something's wrong"
       end
     end
-    # Lousy design : Returns boolean instead of AngryRock winner object
+    
     def play(other)
       if self > other
         self
