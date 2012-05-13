@@ -41,12 +41,5 @@ module Game
      end     
    end   
    
-   private
-   
-   def data_driven_spec(container)
-    container.each do |element|
-      yield element
-    end
-   end
   end
 end
