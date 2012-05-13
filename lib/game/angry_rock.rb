@@ -29,9 +29,29 @@ module Game
         self
       elsif other > self
         other
-      else
-        AngryRock.new("TIE!")
       end
+    end
+
+    def winner(other)
+      if self > other
+        self
+      elsif other > self
+        other
+      end
+    end
+  end
+  
+  class Play
+    def initialize(first_choice, second_choice)
+      @winner = first_choice.winner(second_choice)
+    end
+        
+    def has_winner?
+      !@winner.nil?
+    end
+    
+    def winning_move
+      @winner.move
     end
   end
 end  
