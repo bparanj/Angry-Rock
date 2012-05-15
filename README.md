@@ -1,6 +1,9 @@
 # Angryrock
 
-Rock Paper Scissors Game Engine
+Rock Paper Scissors Game Engine. Has two solutions:
+
+1. Well Grounded Rubyist based solution refactored to a better design.
+2. Sinatra Up and Running based concise solution.
 
 ## Installation
 
