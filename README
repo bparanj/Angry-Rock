@@ -10,5 +10,4 @@ with play returning false for a tie scenario
 
 TODO:
 
-1. Convert this to Gem
-2. Use Boundary Entity Interactor architecture and expose it as a webapp
+1. Use Boundary Entity Interactor architecture and expose it as a webapp
