@@ -1,14 +1,14 @@
 module AngryRock
   class Play
     def initialize(first_choice, second_choice)
-      choice_1 = Internal::AngryRock.new(first_choice)
-      choice_2 = Internal::AngryRock.new(second_choice)
+      @choice_1 = Internal::AngryRock.new(first_choice)
+      @choice_2 = Internal::AngryRock.new(second_choice)
       
-      @winner = choice_1.winner(choice_2)
+      @winner = @choice_1.winner(@choice_2)
     end
         
     def has_winner?
-      !@winner.nil?
+      @choice_1.has_winner?(@choice_2)
     end
     
     def winning_move
@@ -19,35 +19,26 @@ module AngryRock
   module Internal # no-rdoc
     # This is implementation details. Not for client use. Don't touch me.
     class AngryRock
-      include Comparable
-
-      WINS = [ %w{rock scissors}, %w{scissors paper}, %w{paper rock}]
+      WINS = {rock: :scissors, scissors: :paper, paper: :rock}
 
       attr_accessor :move
 
       def initialize(move)
-        @move = move.to_s
+        @move = move
       end
-
-      def <=>(opponent)
-        if move == opponent.move
-          0
-        elsif WINS.include?([move, opponent.move])
-          1
-        elsif WINS.include?([opponent.move, move])
-          -1
-        else
-          raise ArgumentError, "Only rock, paper, scissors are valid choices"
-        end
+      
+      def has_winner?(opponent)
+        self.move != opponent.move
       end
-
+      # fetch will raise exception when the key is not one of the allowed choice
       def winner(opponent)
-        if self > opponent
+        if WINS.fetch(self.move)
           self
-        elsif opponent > self
+        else
           opponent
         end
       end
+      
     end
   end
 end

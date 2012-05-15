@@ -8,21 +8,21 @@ module AngryRock
      play = Play.new(:paper, :rock)
      
      play.should have_winner
-     play.winning_move.should == "paper"     
+     play.winning_move.should == :paper
    end 
    
    it "picks scissors as the winner over paper" do
      play = Play.new(:scissors, :paper)
      
      play.should have_winner
-     play.winning_move.should == "scissors"     
+     play.winning_move.should == :scissors     
    end
    
    it "picks rock as the winner over scissors " do
      play = Play.new(:rock, :scissors)
      
      play.should have_winner
-     play.winning_move.should == "rock"          
+     play.winning_move.should == :rock          
    end
    
    it "results in a tie when the same choice is made by both players : rock, paper or scissors" do
